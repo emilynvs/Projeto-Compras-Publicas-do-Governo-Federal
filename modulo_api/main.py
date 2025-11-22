@@ -18,4 +18,26 @@ def percentualSalaComacessebilidade():
 def melhoresCidades():
     return
 def menu():
-    return 
+    print("===== MENU DE OPÇÕES =====\n")
+    print("1- ANALISAR POR ESTADO\n2- PERCENTUAL SALA COM ACESSIBILIDADE\n3- MELHORES CIDADES COM ACESSIBILIDADE\n0- SAIR")
+
+    escolha = int(input("DIGITE SUA OPÇÃO PARA NAVEGAR: "))
+
+    while escolha != 0:
+        if escolha == 1:
+            print("EXIBINDO ANÁLISE POR ESTADOS...")
+            analiseEstados()
+        elif escolha == 2:
+            print("EXIBINDO ANÁLISE POR PERCENTUAL DE SALAS COM ACESSIBILIDADE...")
+            percentualSalaComacessebilidade()
+        elif escolha == 3:
+            print("EXIBINDO ANÁLISE DE MELHORES CIDADES COM ACESSIBILIDADE...")
+            melhoresCidades()
+        else:
+            print("VOCÊ DIGITOU ALGO INVÁLIDO! TENTE NOVAMENTE")
+
+        escolha = int(input("DIGITE SUA OPÇÃO PARA NAVEGAR: "))
+
+    print("SAINDO...")
+    
+menu()
