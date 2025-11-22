@@ -1,0 +1,85 @@
+Nulos por coluna (APÓS A LIMPEZA):
+NOME_SALA                          0
+REGISTRO_SALA                      0
+CNPJ_SALA                          0
+SITUACAO_SALA                      0
+DATA_SITUACAO_SALA                36
+DATA_INICIO_FUNCIONAMENTO_SALA    54
+ASSENTOS_SALA                      0
+ASSENTOS_CADEIRANTES               0
+ASSENTOS_MOBILIDADE_REDUZIDA       0
+ASSENTOS_OBESIDADE                 0
+ACESSO_ASSENTOS_COM_RAMPA          0
+ACESSO_SALA_COM_RAMPA              0
+BANHEIROS_ACESSIVEIS               0
+
+
+
+                    0 OK
+
+dtype: int64
+========================================
+
+
+create database salas_ancine;
+
+use salas_ancine;
+
+create table exibidor(
+    id_exibidor int AUTO_INCREMENT  PRIMARY KEY,
+    nome_exibidor VARCHAR(255),
+    registro_exibidor VARCHAR(255),
+    cnpj_exibidor VARCHAR(255),
+    situacao_exibidor VARCHAR(255),
+    nome_grupo_exibidor VARCHAR(255),
+    operacao_usual VARCHAR(255)
+);
+
+create table endereco(
+    id_endereco int AUTO_INCREMENT PRIMARY KEY,
+    numero_endereco_complexo int,
+    complemento_complexo VARCHAR(255),
+    bairro_complexo VARCHAR(255),
+    municipio_complexo VARCHAR(255),
+    cep_complexo VARCHAR(255),
+    uf_complexo VARCHAR(255),
+    endereco_complexo VARCHAR(255),
+    numero_complexo int,
+    logradouro_complexo VARCHAR(255),
+    resto_complexo VARCHAR(255)
+);
+
+create table complexo(
+    id_complexo int AUTO_INCREMENT PRIMARY KEY,
+    id_exibidor int,
+    FOREIGN KEY (id_exibidor) REFERENCES exibidor(id_exibidor),
+    id_endereco int,
+    FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco),
+    nome_complexo VARCHAR(255),
+    complexo_itinerante VARCHAR(255),
+    situacao_complexo VARCHAR(255),
+    data_situacao_complexo VARCHAR(255),
+    registro_complexo VARCHAR(255),
+    pagina_eletronica_complexo VARCHAR(255)
+);
+
+create table sala(
+    id_sala int AUTO_INCREMENT PRIMARY KEY,
+    id_complexo int,
+    FOREIGN KEY (id_complexo) REFERENCES complexo(id_complexo),
+    registro_sala int,
+    cnpj_sala VARCHAR(255),
+    situacao_sala VARCHAR(255),
+    data_situacao_sala VARCHAR(255),
+    data_inicio_funcionamento_sala VARCHAR(255),
+    assentos_sala int,
+    assentos_cadeirantes int,
+    assentos_mobilidade_reduzida int,
+    assentos_obesidade int,
+    acesso_assentos_com_rampa VARCHAR(255),
+    acesso_sala_com_rampa VARCHAR(255),
+    banheiros_acessiveis VARCHAR(255)
+);
+
+
+

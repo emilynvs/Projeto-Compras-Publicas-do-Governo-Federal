@@ -1,0 +1,7 @@
+mysql-connector-python
+
+
+
+# coloque isso no terminal do vscode: pip install -r requirements.txt
+# esse tambem pip install Unidecode
+
